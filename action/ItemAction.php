@@ -1,4 +1,4 @@
 <?php
   require_once '../class/Item.php';
-  $item = new Item();
+  $itemHandle = new Item();
   session_start();

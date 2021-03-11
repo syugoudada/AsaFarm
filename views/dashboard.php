@@ -1,9 +1,9 @@
 <?php
-  include '../action/itemAction.php';
+include '../action/itemAction.php';
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
 
@@ -26,30 +26,48 @@
 </head>
 
 <body>
-
-  <div class="table-responsive">
-    <table class="table table-striped table-sm">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Stocks</th>
-          <th>Categories</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php 
-          $row = $item->selectAllItems($_SESSION['user_id']);
-        ?>
-        <tr>
-          <td><?php echo $row['item_id']?></td>
-          <td><?php echo $row['item_name'] ?></td>
-          <td><?php echo $row['item_price'] ?></td>
-          <td><?php echo $row['item_stocks'] ?></td>
-          <td><?php echo $row['category_name'] ?></td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="container">
+    <div class="card mx-auto w-75 my-5 border border-0">
+      <div class="card-header bg-white border-0 text-primary">
+        <h1 class="text-center">Edit</h1>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Stocks</th>
+              <th>Categories</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $row = $itemHandle->selectAllItems($_SESSION['user_id']);
+            foreach($row as $item){
+            ?>
+            <tr>
+              <td><?php echo $item['item_id'] ?></td>
+              <td><?php echo $item['item_name'] ?></td>
+              <td><?php echo $item['item_price'] ?></td>
+              <td><?php echo $item['item_stocks'] ?></td>
+              <td><?php echo $item['category_name'] ?></td>
+              <td><a href="?item_id=<?php echo $item['item_id']; ?>" class="btn btn-primary  btn-sm active" role="button" aria-pressed="true">Update</a></td>
+              <td><a href="?item_id=<?php echo $item['item_id']; ?>" class="btn btn-danger  btn-sm active" role="button" aria-pressed="true">Delete</a></td>
+            </tr>
+            <?php
+            }
+            ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
+
+
+
+
 </body>
