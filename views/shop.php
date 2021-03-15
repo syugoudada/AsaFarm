@@ -1,14 +1,9 @@
 <?php
-
-use function PHPSTORM_META\type;
-
 include '../action/ItemAction.php';
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
   <meta charset="utf-8">
@@ -16,7 +11,7 @@ include '../action/ItemAction.php';
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Shop Homepage - Start Bootstrap Template</title>
+  <title>AsaFarm</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
@@ -59,9 +54,6 @@ include '../action/ItemAction.php';
           </li>
           <li class="nav-item">
             <a class="nav-link" href="./signIn.php">SignIn</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./cart.php">SignUp</a>
           </li>
         </ul>
       </div>
@@ -114,13 +106,13 @@ include '../action/ItemAction.php';
         </div>
         <div class="row">
         <?php
-          $row = $itemHandle->selectItems();
+          $row = $itemHandle->selectPopularItems();
           foreach($row as $item){
         ?>
         
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="../items_image/item/item1.jpg" alt=""  height="200px" style="object-fit:cover"></a>
+              <a href="./detail.php?item_id=<?php echo $item['item_id'] ?>"><img class="card-img-top" src="../items_image/item/item<?php echo $item['item_id'] ?>.png" alt=""  height="200px" style="object-fit:cover"></a>
               <div class="card-body">
                 <h4 class="card-title">
                   <a href="./detail.php?item_id=<?php echo $item['item_id']?>"><?php echo $item['item_name']?></a>

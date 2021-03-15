@@ -1,8 +1,9 @@
 <?php
 define("IMAGE_PATH", "../items_image");
 
+
 /**
- * 画像の登録
+ * Image Register
  * @param stirng $id
  * @param array $file ['image_name'],['image_tmp']
  * @return boolean 
@@ -52,14 +53,14 @@ function image_resize($img,$id){
   $new_width = 500;
   $new_height = 300;
 
-  //新しい画像のサイズ
+  //New Image Size
   $image_r = imagecreatetruecolor($new_width, $new_height);
 
   imagecopyresampled($image_r, $img, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
 
   imagepng($image_r, IMAGE_PATH."item$id.png");
 
-  //一時領域の画像を削除
+  //Tmp area image remove
   imagedestroy($image_r);
   imagedestroy($img);
 }
