@@ -13,7 +13,7 @@ class Item extends Database{
    */
 
   public function selectAllItems($userId){
-    $sql = "SELECT items.item_id,items.item_name,items.item_price,items.item_stocks,categorys.category_name from items,categorys WHERE items.category_id = categorys.category_id and items.user_id = $userId Order By item_id";
+    $sql = "SELECT items.item_id,items.item_name,items.item_price,items.item_stocks,items.item_image,categorys.category_name from items,categorys WHERE items.category_id = categorys.category_id and items.user_id = $userId Order By item_id";
     
     $row = array();
     $result = $this->conn->query($sql);
@@ -107,8 +107,8 @@ class Item extends Database{
    * 
    */
 
-  public function insertItem($name,$price,$stock,$description){
-    $sql = "Insert Into items(item_name,item_price,item_stocks,description) VALUES('$name','$price','$stock','$description')";
+  public function insertItem($name,$price,$stock,$description,$image_name,$userId,$categoryId){
+    $sql = "Insert Into items(item_name,item_price,item_stocks,description,item_image,user_id,category_id) VALUES('$name','$price','$stock','$description','$image_name','$userId','$categoryId')";
 
     if($this->conn->query($sql)){
       return true;
