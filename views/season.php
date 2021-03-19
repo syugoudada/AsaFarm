@@ -69,21 +69,21 @@ $season = ["1"=>array("season"=>"spring"),"2"=>array("season"=>"summer"),"3"=>ar
 
 
 <!-- Page Content -->
-<section>
+<!-- <section> -->
 
-<div class="container">
+<div class="container my-5">
 
   <div class="row">
     <div class="col-lg-12">
       <div class="row">
         <?php
-        $row = $itemHandle->selectPopularItems();
+        $row = $itemHandle->selectSeasonItems($seasonId);
         foreach ($row as $item) {
         ?>
 
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
-              <a href="./detail.php?item_id=<?php echo $item['item_id'] ?>"><img class="card-img-top" src="../items_image/item/item<?php echo $item['item_id'] ?>.png" alt="" height="200px" style="object-fit:cover"></a>
+              <a href="./detail.php?item_id=<?php echo $item['item_id'] ?>"><img class="card-img-top" src="../uploads/<?php echo $item['item_image'] ?>" alt="" height="200px" style="object-fit:cover"></a>
               <div class="card-body">
                 <h4 class="card-title">
                   <a href="./detail.php?item_id=<?php echo $item['item_id'] ?>"><?php echo $item['item_name'] ?></a>
@@ -109,7 +109,7 @@ $season = ["1"=>array("season"=>"spring"),"2"=>array("season"=>"summer"),"3"=>ar
   <!-- /.row -->
 
 </div>
-</section>
+<!-- </section> -->
 <!-- /.container -->
 
 <!-- Footer -->

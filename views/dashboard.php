@@ -26,6 +26,36 @@ include '../action/itemAction.php';
 </head>
 
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id = "navbar">
+    <div class="container">
+      <a class="navbar-brand" href="#">AsaFarm</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="./signInShop.php">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./signInShop.php"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./register.php">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./signOut" >SignOut</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
   <div class="container">
     <div class="card mx-auto w-75 my-5 border border-0">
       <div class="card-header bg-white border-0 text-primary">
@@ -47,23 +77,33 @@ include '../action/itemAction.php';
           <tbody>
             <?php
             $row = $itemHandle->selectAllItems($_SESSION['user_id']);
-            foreach($row as $item){
+            foreach ($row as $item) {
             ?>
-            <tr>
-              <td><?php echo $item['item_id'] ?></td>
-              <td><?php echo $item['item_name'] ?></td>
-              <td><?php echo $item['item_price'] ?></td>
-              <td><?php echo $item['item_stocks'] ?></td>
-              <td><?php echo $item['category_name'] ?></td>
-              <td><a href="?item_id=<?php echo $item['item_id']; ?>" class="btn btn-primary  btn-sm active" role="button" aria-pressed="true">Update</a></td>
-              <td><a href="?item_id=<?php echo $item['item_id']; ?>" class="btn btn-danger  btn-sm active" role="button" aria-pressed="true">Delete</a></td>
-            </tr>
+              <tr>
+                <td><?php echo $item['item_id'] ?></td>
+                <td><?php echo $item['item_name'] ?></td>
+                <td><?php echo $item['item_price'] ?></td>
+                <td><?php echo $item['item_stocks'] ?></td>
+                <td><?php echo $item['category_name'] ?></td>
+                <td><a href="./update.php?item_id=<?php echo $item['item_id']; ?>" class="btn btn-primary  btn-sm active" role="button" aria-pressed="true">Update</a></td>
+                <td><a href="./deleteItem.php?item_id=<?php echo $item['item_id']; ?>?>" class="btn btn-danger  btn-sm active" role="button" aria-pressed="true">Delete</a></td>
+              </tr>
             <?php
             }
             ?>
           </tbody>
         </table>
       </div>
+          <a href="./register.php">Go Register</a>
+      <!-- <div class="row no-gutters bg-light position-relative">
+        <div class="col-md-6 mb-md-0 p-md-4">
+          <img src="../image/register.jpg" class="w-100" alt="...">
+        </div>
+        <div class="col-md-6 position-static p-4 pl-md-0">
+          <h5 class="mt-0">Let's Register Vegetable</h5>
+          <p>Another instance of placeholder content for this other custom component. It is intended to mimic what some real-world content would look like, and we're using it here to give the component a bit of body and size.</p>
+        </div>
+      </div> -->
     </div>
   </div>
 

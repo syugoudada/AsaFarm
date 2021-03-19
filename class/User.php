@@ -43,12 +43,12 @@ class User extends Database{
         $_SESSION['last_name'] = $row['last_name'];
         $_SESSION['status'] = $row['status'];
         if($_SESSION['status'] == 'U'){
-          header("Location:../views/shop.php");
+          header("Location:../views/signInShop.php");
         }else{
           header("Location:../views/dashboard.php");
         }
       }else{
-
+        header("Location:../views/signUp.php");
       }
     }
    }

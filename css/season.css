@@ -12,17 +12,17 @@ section {
 
 .spring{
   color: rgba(255, 124, 124, 0.781);
-  background-image: url("../items_image/background/Spring.jpg");
+  background-image: url("../image/Spring.jpg");
 }
 
 .summer{
   color: rgba(124, 255, 248, 0.781);
-  background-image: url("../items_image/background/Summer.jpg");
+  background-image: url("../image/Summer.jpg");
 }
 
 .autumn{
   color: rgba(165, 113, 0, 0.781);
-  background-image: url("../items_image/background/Autumn.jpg");
+  background-image: url("../image/Autumn.jpg");
 }
 
 .winter{

@@ -1,10 +1,10 @@
 <?php
 include '../action/ItemAction.php';
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <meta charset="utf-8">
@@ -31,7 +31,7 @@ include '../action/ItemAction.php';
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id = "navbar">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbar">
     <div class="container">
       <a class="navbar-brand" href="#">AsaFarm</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,12 +50,24 @@ include '../action/ItemAction.php';
           <li class="nav-item">
             <a class="nav-link" href="#">Services</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./signIn.php" >SignIn</a>
-          </li>
+          <?php
+          if (isset($_SESSION['user_id']) && $_SESSION['status'] != 'U') {
+          ?>
+            <li class="nav-item">
+              <a class="nav-link" href="./dashboard.php">
+              <?php
+              echo 'DashBoard';
+            }
+              ?>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./signOut.php">SignOut</a>
+            </li>
+            <li class="nav-item" style="display:flex;">
+              <a class="nav-link" href="./order.php">Cart</a>
+              <i class="fas fa-shopping-cart mt-2"></i>
+            </li>
         </ul>
       </div>
     </div>
@@ -74,9 +86,12 @@ include '../action/ItemAction.php';
           <a href="./season.php?season_id=4" class="list-group-item">Winter</a>
         </div>
 
-        <blockquote class="twitter-tweet" data-lang="en" data-theme="light"><p lang="en" dir="ltr">Sunsets don&#39;t get much better than this one over <a href="https://twitter.com/GrandTetonNPS?ref_src=twsrc%5Etfw">@GrandTetonNPS</a>. <a href="https://twitter.com/hashtag/nature?src=hash&amp;ref_src=twsrc%5Etfw">#nature</a> <a href="https://twitter.com/hashtag/sunset?src=hash&amp;ref_src=twsrc%5Etfw">#sunset</a> <a href="http://t.co/YuKy2rcjyU">pic.twitter.com/YuKy2rcjyU</a></p>&mdash; US Department of the Interior (@Interior) <a href="https://twitter.com/Interior/status/463440424141459456?ref_src=twsrc%5Etfw">May 5, 2014</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <blockquote class="twitter-tweet" data-lang="en" data-theme="light">
+          <p lang="en" dir="ltr">Sunsets don&#39;t get much better than this one over <a href="https://twitter.com/GrandTetonNPS?ref_src=twsrc%5Etfw">@GrandTetonNPS</a>. <a href="https://twitter.com/hashtag/nature?src=hash&amp;ref_src=twsrc%5Etfw">#nature</a> <a href="https://twitter.com/hashtag/sunset?src=hash&amp;ref_src=twsrc%5Etfw">#sunset</a> <a href="http://t.co/YuKy2rcjyU">pic.twitter.com/YuKy2rcjyU</a></p>&mdash; US Department of the Interior (@Interior) <a href="https://twitter.com/Interior/status/463440424141459456?ref_src=twsrc%5Etfw">May 5, 2014</a>
+        </blockquote>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-        
+
 
       </div>
       <!-- /.col-lg-3 -->
@@ -92,8 +107,9 @@ include '../action/ItemAction.php';
             <div class="carousel-item active">
               <img class="d-block  w-100" src="../image/fileds.jpg" alt="First slide" width="900" height="350">
             </div>
+
             <div class="carousel-item">
-              <img class="d-block  w-100" src="../image/promotion.png" alt="First slide" width="900" height="350">
+              <img class="d-block  w-100" src="../image/aguliculture.jpg" alt="First slide" width="900" height="350">
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -106,45 +122,29 @@ include '../action/ItemAction.php';
           </a>
         </div>
         <div class="row">
-        <?php
+          <?php
           $row = $itemHandle->selectPopularItems();
-          foreach($row as $item){
-        ?>
-        
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="./detail.php?item_id=<?php echo $item['item_id'] ?>"><img class="card-img-top" src="../uploads/<?php echo $item['item_image'] ?>" alt=""  height="200px" style="object-fit:cover"></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="./detail.php?item_id=<?php echo $item['item_id']?>"><?php echo $item['item_name']?></a>
-                </h4>
-                <h5>￥<?php echo number_format($item['item_price'])?></h5>
-                <p class="card-text"></p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+          foreach ($row as $item) {
+          ?>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="card h-100">
+                <a href="./signInDetail.php?item_id=<?php echo $item['item_id'] ?>"><img class="card-img-top" src="../uploads/<?php echo $item['item_image'] ?>" alt="" height="200px" style="object-fit:cover"></a>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="./signInDetail.php?item_id=<?php echo $item['item_id'] ?>"><?php echo $item['item_name'] ?></a>
+                  </h4>
+                  <h5>￥<?php echo number_format($item['item_price']) ?></h5>
+                  <p class="card-text"></p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                </div>
               </div>
             </div>
-          </div>
           <?php
           }
           ?>
-          <!-- <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="../image/hands.jpg" alt="" height="200px" style="object-fit:cover"></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item Two</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>  -->
-
         </div>
         <!-- /.row -->
 

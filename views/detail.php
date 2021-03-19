@@ -19,21 +19,20 @@ $item = $itemHandle->selectItem($itemId);
   <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript">
     //your javascript goes here
-  
   </script>
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbar">
     <div class="container">
-    <a class="navbar-brand" href="./shop.php">AsaFarm</a>
+      <a class="navbar-brand" href="./shop.php">AsaFarm</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home
+            <a class="nav-link" href="./shop.php">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
@@ -46,9 +45,6 @@ $item = $itemHandle->selectItem($itemId);
           <li class="nav-item">
             <a class="nav-link" href="#">Contact</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./signIn.php">SignIn</a>
-          </li>
         </ul>
       </div>
     </div>
@@ -58,15 +54,9 @@ $item = $itemHandle->selectItem($itemId);
     <div class="single_product">
       <div class="container-fluid" style=" background-color: #fff; padding: 11px;">
         <div class="row">
-          <div class="col-lg-2 order-lg-1 order-2">
-            <ul class="image_list">
-              <li data-image="https://i.imgur.com/21EYMGD.jpg"><img src="https://i.imgur.com/21EYMGD.jpg" alt=""></li>
-              <li data-image="https://i.imgur.com/DPWSNWd.jpg"><img src="https://i.imgur.com/DPWSNWd.jpg" alt=""></li>
-              <li data-image="https://i.imgur.com/HkEiXfn.jpg"><img src="https://i.imgur.com/HkEiXfn.jpg" alt=""></li>
-            </ul>
-          </div>
-          <div class="col-lg-4 order-lg-2 order-1">
-            <div class="image_selected"><img src="../items_image/item/item<?php echo $item['item_id'] ?>.png" alt=""></div>
+
+          <div class="col-lg-6 order-lg-2 order-1">
+            <div class="image_selected"><img src="../uploads/<?php echo $item['item_image'] ?>" alt=""></div>
 
           </div>
           <div class="col-lg-6 order-3 my-3">
@@ -79,20 +69,27 @@ $item = $itemHandle->selectItem($itemId);
                 <span class="product_info"><?php echo $item['description'] ?></span><br>
                 <span class="product_info">7 Days easy return policy</span><br>
                 <span class="product_info">7 Days easy return policy</span><br>
-                <span class="product_info">In Stock: 25 units sold this week</span>
+                <span class="product_info">In Stock:<?php echo $item['item_stocks']; ?>個</span>
               </div>
 
               <hr class="singleline">
               <div class="order_info d-flex flex-row">
-                <form action="./order.php" method="POST">
+                <form action="#">
               </div>
               <div class="row">
                 <div class="col-xs-6" style="margin-left: 13px;">
                   <div class="product_quantity"> <span>QTY: </span> <input id="quantity_input" type="number" name="quantity" required min="1"></div>
                   <input type="hidden" name="item_id" value="<?php echo $itemId; ?>">
                 </div>
-                <div class="col-xs-6"> <button type="submit" class="btn btn-primary shop-button">Add to Order</button> <button type="button" class="btn btn-success shop-button">Buy Now</button>
+                <div class="col-xs-6"> <button type="submit" class="btn btn-primary shop-button" disabled>Add to Order</button> <button type="button" class="btn btn-success shop-button" disabled>Buy Now</button>
                   </form>
+                </div>
+                <div class="media position-relative mt-5" style="margin-left: 13px;">
+                  <div class="media-body">
+                    <h5 class="mt-0 text-danger">サインインしてください</h5>
+                    <p>注文するためには必要です。</p>
+                    <a href="./signIn.php" class="stretched-link">Go SignIn</a>
+                  </div>
                 </div>
               </div>
             </div>
