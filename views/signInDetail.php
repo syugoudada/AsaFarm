@@ -14,6 +14,7 @@ $item = $itemHandle->selectItem($itemId);
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/detail.css">
+  <link rel="stylesheet" href="../css/font.css">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
   <script src="https://kit.fontawesome.com/f3d03e8132.js" crossorigin="anonymous"></script>
@@ -36,61 +37,41 @@ $item = $itemHandle->selectItem($itemId);
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
+            <a class="nav-link" href="#"></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="#">Services</a>
           </li>
+          <?php
+          if (isset($_SESSION['user_id']) && $_SESSION['status'] != 'U') {
+          ?>
+            <li class="nav-item">
+              <a class="nav-link" href="./dashboard.php">
+              <?php
+              echo 'DashBoard';
+            }
+              ?>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./signOut.php">SignOut</a>
+            </li>
+            <li class="nav-item" style="display:flex;">
+              <a class="nav-link" href="./order.php">Cart</a>
+              <i class="fas fa-shopping-cart mt-2"></i>
+            </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <div class="super_container my-5">
+  <div class="super_container mt-5">
     <div class="single_product">
       <div class="container-fluid" style=" background-color: #fff; padding: 11px;">
         <div class="row">
           <div class="col-lg-6 order-lg-2 order-1">
             <div class="image_selected"><img src="../uploads/<?php echo $item['item_image'] ?>" alt="">
             </div>
-            <h3>Review</h3>
-            <div class="row mt-5">
-              <div class="card mb-3" style="max-width: 540px;">
-                <div class="row no-gutters">
-                  <div class="col-md-4">
-                    <svg class="bd-placeholder-img" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image">
-                      <title>Placeholder</title>
-                      <rect fill="#868e96" width="100%" height="100%" /><text fill="#dee2e6" dy=".3em" x="50%" y="50%">Image</text>
-                    </svg>
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card mb-3" style="max-width: 540px;">
-                <div class="row no-gutters">
-                  <div class="col-md-4">
-                    <svg class="bd-placeholder-img" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image">
-                      <title>Placeholder</title>
-                      <rect fill="#868e96" width="100%" height="100%" /><text fill="#dee2e6" dy=".3em" x="50%" y="50%">Image</text>
-                    </svg>
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-muted">Last updated 3 mins ag</small></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
           </div>
           <div class="col-lg-6 order-3 my-3">
             <div class="product_description">
@@ -100,9 +81,9 @@ $item = $itemHandle->selectItem($itemId);
               <hr class="singleline">
               <div>
                 <span class="product_info"><?php echo $item['description'] ?></span><br>
-                <span class="product_info">7 Days easy return policy</span><br>
-                <span class="product_info">7 Days easy return policy</span><br>
-                <span class="product_info">In Stock:<?php echo $item['item_stocks']; ?>個</span>
+                <span class="product_info">賞味期限 : 7日</span><br>
+                <span class="product_info"></span><br>
+                <span class="product_info">在庫 : <?php echo $item['item_stocks']; ?>個</span>
               </div>
 
               <hr class="singleline">
@@ -152,6 +133,33 @@ $item = $itemHandle->selectItem($itemId);
     </div>
   </div>
 
+  <div class="super_container">
+    <div class="single_product" style="height: 60vh;">
+      <div class="container-fluid mt-5" style="background-color: #fff;">
+        <h3 class="pt-3">Review</h3>
+        <div class="row" style="padding: 10px;">
+        <?php 
+          $row = $itemHandle->selectReview($itemId);
+          foreach($row as $review){
+        ?>
+          <div class="col-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 class="card-title">
+                  <p><?php echo $item['item_name']; ?></p>
+                </h4>
+                <h5><?php echo $review['username'];?></h5>
+                <p class="card-text"><?php echo $review['review_text'];?></p>
+              </div>
+            </div>
+          </div>
+          <?php
+            }
+          ?>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

@@ -1,9 +1,11 @@
 <?php
 include '../action/ItemAction.php';
+$seasonId = $_GET['season_id'];
+$season = ["1" => array("season" => "spring"), "2" => array("season" => "summer"), "3" => array("season" => "autumn"), "4" => array("season" => "winter")];
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
 
@@ -35,14 +37,14 @@ include '../action/ItemAction.php';
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbar">
     <div class="container">
-      <a class="navbar-brand" href="#">AsaFarm</a>
+      <a class="navbar-brand" href="./signInShop.php">AsaFarm</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home
+            <a class="nav-link" href="./signInShop.php">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
@@ -100,37 +102,37 @@ include '../action/ItemAction.php';
 
       <div class="col-lg-9">
 
-        <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+      <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
-              <img class="d-block  w-100" src="../image/title.png" alt="First slide" width="900" height="350" style="border-radius: 15px;">
+              <img class="d-block  w-100" src="../image/<?php echo ucfirst($season[$seasonId]['season']) ?>.jpg" alt="First slide" width="900" height="350" style="border-radius: 15px;">
             </div>
           </div>
         </div>
         <div class="row">
-          <?php
-          $row = $itemHandle->selectPopularItems();
-          foreach ($row as $item) {
-          ?>
+        <?php
+        $row = $itemHandle->selectSeasonItems($seasonId);
+        foreach ($row as $item) {
+        ?>
 
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="./signInDetail.php?item_id=<?php echo $item['item_id'] ?>"><img class="card-img-top" src="../uploads/<?php echo $item['item_image'] ?>" alt="" height="200px" style="object-fit:cover"></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="./signInDetail.php?item_id=<?php echo $item['item_id'] ?>"><?php echo $item['item_name'] ?></a>
-                  </h4>
-                  <h5>￥<?php echo number_format($item['item_price']) ?></h5>
-                  <p class="card-text"></p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="./detail.php?item_id=<?php echo $item['item_id'] ?>"><img class="card-img-top" src="../uploads/<?php echo $item['item_image'] ?>" alt="" height="200px" style="object-fit:cover"></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="./detail.php?item_id=<?php echo $item['item_id'] ?>"><?php echo $item['item_name'] ?></a>
+                </h4>
+                <h5>￥<?php echo number_format($item['item_price']) ?></h5>
+                <p class="card-text"></p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
               </div>
             </div>
-          <?php
-          }
-          ?>
+          </div>
+        <?php
+        }
+        ?>
         </div>
         <!-- /.row -->
 
@@ -151,11 +153,10 @@ include '../action/ItemAction.php';
           <aside class="col-md col-6">
             <h6 class="title">Brands</h6>
             <ul class="list-unstyled">
-              <li> <a href="#">Kirby</a></li>
-              <li> <a href="#">Asa</a></li>
-              <li> <a href="#">Nino</a></li>
-              <li> <a href="#">Atu</a></li>
-              <li> <a href="#">Tomo</a></li>
+              <li> <a href="#">Adidas</a></li>
+              <li> <a href="#">Puma</a></li>
+              <li> <a href="#">Reebok</a></li>
+              <li> <a href="#">Nike</a></li>
             </ul>
           </aside>
           <aside class="col-md col-6">
@@ -203,7 +204,7 @@ include '../action/ItemAction.php';
         <div class="col-md-12">
           <p class="text-center"> © 2021 Company name </p>
         </div>
-
+        
       </section>
     </div><!-- //container -->
   </footer>

@@ -4,6 +4,10 @@ html{
   max-height: 100vh;
 }
 
+body{
+  background-color: #e5e2df;
+}
+
 
 .main{
   margin-top: 5rem;

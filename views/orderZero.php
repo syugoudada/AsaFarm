@@ -1,7 +1,4 @@
 <?php
-
-use function PHPSTORM_META\type;
-
 include '../action/ItemAction.php';
 $row = $itemHandle->selectOrderItems($_SESSION['user_id']);
 
@@ -22,8 +19,6 @@ if (isset($_SESSION['user_id'])) {
   <title>Document</title>
   <link rel="stylesheet" href="../css/cart.css">
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <link rel="stylesheet" href="../css/font.css">
-
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
   <!------ Include the above in your HEAD tag ---------->
@@ -64,11 +59,11 @@ if (isset($_SESSION['user_id'])) {
   </nav>
 
   <div class="container main">
-    <form action="../action/ItemAction.php" method="POST">
+    <form action="./purchse.php" method="POST">
       <div class="card shopping-cart">
         <div class="card-header bg-dark text-light">
           <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-          ショッピングカート
+          Shipping cart
           <a href="" class="btn btn-outline-info btn-sm pull-right">Continiu shopping</a>
           <div class="clearfix"></div>
         </div>
@@ -129,7 +124,7 @@ if (isset($_SESSION['user_id'])) {
             </div>
           </div>
           <div class="pull-right" style="margin: 10px">
-            <button type="submit" name="purchase" class="btn btn-success shop-button pull-right">CheckOut</button>
+            <button type="submit" class="btn btn-success shop-button pull-right">CheckOut</button>
             <div class="pull-right" style="margin: 5px">
               Total price: <b><?php echo number_format($total); ?>円</b>
               <input type="hidden" name="total" value="<?php echo $total?>">

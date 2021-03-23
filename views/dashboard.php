@@ -17,6 +17,8 @@ include '../action/itemAction.php';
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <!-- <script src="https://kit.fontawesome.com/f3d03e8132.js"></script> -->
+  <link rel="stylesheet" href="../css/font.css">
+
 
   <!-- Custom styles for this template -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -26,7 +28,7 @@ include '../action/itemAction.php';
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id = "navbar">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbar">
     <div class="container">
       <a class="navbar-brand" href="#">AsaFarm</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +51,7 @@ include '../action/itemAction.php';
             <a class="nav-link" href="#">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./signOut" >SignOut</a>
+            <a class="nav-link" href="./signOut">SignOut</a>
           </li>
         </ul>
       </div>
@@ -57,9 +59,55 @@ include '../action/itemAction.php';
   </nav>
 
   <div class="container">
-    <div class="card mx-auto w-75 my-5 border border-0">
+  <header class="section-heading" style="margin-top: 100px;">
+    <h3 class="section-title">管理者ページ</h3>
+  </header>
+  </div>
+  <section class="section-content padding-y-sm" style="margin-top: 50px;">
+
+    <div class="container">
+      <article class="card card-body">
+        <div class="row">
+          <div class="col-md-4">
+            <figure class="item-feature">
+              <span class="text-primary"><i class="fa fa-2x fa-truck"></i></span>
+              <figcaption class="pt-3">
+                <h5 class="title">高速配達</h5>
+                <p>Dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  tempor incididunt ut labore </p>
+              </figcaption>
+            </figure> <!-- iconbox // -->
+          </div><!-- col // -->
+          <div class="col-md-4">
+            <figure class="item-feature">
+              <span class="text-primary"><i class="fa fa-2x fa-landmark"></i></span>
+              <figcaption class="pt-3">
+                <h5 class="title">Creative Strategy</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                </p>
+              </figcaption>
+            </figure> <!-- iconbox // -->
+          </div><!-- col // -->
+          <div class="col-md-4">
+            <figure class="item-feature">
+              <span class="text-primary"><i class="fa fa-2x fa-lock"></i></span>
+              <figcaption class="pt-3">
+                <h5 class="title">High secured </h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                </p>
+              </figcaption>
+            </figure> <!-- iconbox // -->
+          </div> <!-- col // -->
+        </div>
+      </article>
+
+    </div> <!-- container .//  -->
+  </section>
+
+  <div class="container">
+    <div class="card mx-auto my-5 border border-0">
       <div class="card-header bg-white border-0 text-primary">
-        <h1 class="text-center">Edit</h1>
+
       </div>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
@@ -94,7 +142,7 @@ include '../action/itemAction.php';
           </tbody>
         </table>
       </div>
-          <a href="./register.php">Go Register</a>
+      <a href="./register.php">Go Register</a>
       <!-- <div class="row no-gutters bg-light position-relative">
         <div class="col-md-6 mb-md-0 p-md-4">
           <img src="../image/register.jpg" class="w-100" alt="...">
@@ -106,6 +154,70 @@ include '../action/itemAction.php';
       </div> -->
     </div>
   </div>
+
+  <footer class="section-footer border-top bg-dark">
+    <div class="container">
+      <section class="footer-top  padding-y mt-3">
+        <div class="row text-white">
+          <aside class="col-md col-6">
+            <h6 class="title">Brands</h6>
+            <ul class="list-unstyled">
+            <li> <a href="#">Kirby</a></li>
+              <li> <a href="#">Asa</a></li>
+              <li> <a href="#">Nino</a></li>
+              <li> <a href="#">Atu</a></li>
+              <li> <a href="#">Tomo</a></li>
+            </ul>
+          </aside>
+          <aside class="col-md col-6">
+            <h6 class="title">Company</h6>
+            <ul class="list-unstyled">
+              <li> <a href="#">About us</a></li>
+              <li> <a href="#">Career</a></li>
+              <li> <a href="#">Find a store</a></li>
+              <li> <a href="#">Rules and terms</a></li>
+              <li> <a href="#">Sitemap</a></li>
+            </ul>
+          </aside>
+          <aside class="col-md col-6">
+            <h6 class="title">Help</h6>
+            <ul class="list-unstyled">
+              <li> <a href="#">Contact us</a></li>
+              <li> <a href="#">Money refund</a></li>
+              <li> <a href="#">Order status</a></li>
+              <li> <a href="#">Shipping info</a></li>
+              <li> <a href="#">Open dispute</a></li>
+            </ul>
+          </aside>
+          <aside class="col-md col-6">
+            <h6 class="title">Account</h6>
+            <ul class="list-unstyled">
+              <li> <a href="#"> User Login </a></li>
+              <li> <a href="#"> User register </a></li>
+              <li> <a href="#"> Account Setting </a></li>
+              <li> <a href="#"> My Orders </a></li>
+            </ul>
+          </aside>
+          <aside class="col-md">
+            <h6 class="title">Social</h6>
+            <ul class="list-unstyled">
+              <li><a href="#"> <i class="fab fa-facebook"></i> Facebook </a></li>
+              <li><a href="#"> <i class="fab fa-twitter"></i> Twitter </a></li>
+              <li><a href="#"> <i class="fab fa-instagram"></i> Instagram </a></li>
+              <li><a href="#"> <i class="fab fa-youtube"></i> Youtube </a></li>
+            </ul>
+          </aside>
+        </div> <!-- row.// -->
+      </section> <!-- footer-top.// -->
+
+      <section class="footer-bottom row text-white">
+        <div class="col-md-12">
+          <p class="text-center"> © 2021 Company name </p>
+        </div>
+
+      </section>
+    </div><!-- //container -->
+  </footer>
 
 
 

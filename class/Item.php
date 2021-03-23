@@ -48,6 +48,13 @@ class Item extends Database
     return $row;
   }
 
+  /**
+   * Select Season Items
+   * 
+   * @param string $seasonId
+   * 
+   */
+
   public function selectSeasonItems($seasonId)
   {
     $sql = "SELECT * from items WHERE category_id = '$seasonId'";
@@ -96,6 +103,61 @@ class Item extends Database
     }
     return $row;
   }
+
+  /**
+   * Select Order Table of users
+   * 
+   * @param string $itemId
+   * 
+   */
+
+  public function selectPurchaseItems($userId)
+  {
+    $sql = "SELECT orders.item_id,orders.buy_quantity from orders WHERE orders.user_id = '$userId'";
+
+    $row = array();
+    $result = $this->conn->query($sql);
+    
+    if ($result->num_rows > 0) {
+      while ($item = $result->fetch_assoc()) {
+        $row[] = $item;
+      }
+      return json_encode($row);
+    }else{
+      header("Location:../views/order.php");
+    }
+  }
+
+  /**
+   * Select Review of users
+   * 
+   * @param string $itemId
+   * 
+   */ 
+
+  public function selectReview($itemId){
+    $sql = "SELECT reviews.review_text,users.username from reviews JOIN users ON reviews.user_id = users.user_id WHERE reviews.item_id  = '$itemId'";
+
+    $row = array();
+    $result = $this->conn->query($sql);
+    
+    if ($result->num_rows > 0) {
+      while ($item = $result->fetch_assoc()) {
+        $row[] = $item;
+      }
+      return $row;
+    }else{
+      return [];
+    }
+  }
+
+  public function selectRecipteItems($userId){
+    $sql = "select purchase_items from receipts where user_id = '$userId' ORDER BY receipts_date DESC LIMIT 1";
+    $result = $this->conn->query($sql);
+    return $result->fetch_assoc();
+  }
+
+
   
   /**
    * Register Item
@@ -118,6 +180,7 @@ class Item extends Database
       return false;
     }
   }
+
   
   /**
    * Add Item
@@ -138,8 +201,42 @@ class Item extends Database
       return false;
     }
     return true;
-
   }
+
+  /**
+   * Insert Review
+   * 
+   * @param string userId
+   * @param string itemId
+   * @param string comment
+   */
+
+  public function insertReview($userId,$itemId,$comment){
+    $sql = "Insert Into reviews(user_id,item_id,review_text) VALUES('$userId','$itemId','$comment')";
+    if($this->conn->query($sql)){
+      header("Location:../views/signInDetail.php?item_id=$itemId");
+    }else{
+      header("Location:../views/signInDetail.php?item_id=$itemId");
+    }
+   }
+
+  /**
+   * Insert Recipte
+   * 
+   * @param string $userId
+   *  
+   */  
+
+   public function insertRecipte($userId){
+    $purchaseItems = $this->selectPurchaseItems($userId);
+    $today = date("Y-m-d H:i:s");
+    $sql = "Insert Into receipts(user_id,purchase_items,receipts_date) VALUES('$userId','$purchaseItems','$today')";
+    if($this->conn->query($sql)){
+      return true;
+    }else{
+      return false;
+    }
+   }
 
   /**
    *  Update Item Quantity
@@ -161,67 +258,6 @@ class Item extends Database
       header("Location:../views/order.php");
     } else {
       header("Location:../views/signInDetail.php");
-    }
-  }
-
-  /**
-   * Delete Order List Item
-   * 
-   * @param string $orderId
-   */
-
-  public function deleteOrderItem($orderId){
-    $sql = "DELETE from orders WHERE order_id = $orderId";
-    if ($this->conn->query($sql)) {
-      header("Location:../views/order.php");
-    } else {
-      return false;
-    }
-  }
-
-  /**
-   * Insert Review
-   * 
-   * @param string userId
-   * @param string itemId
-   * @param string comment
-   */
-
-   public function insertReview($userId,$itemId,$comment){
-    $sql = "Insert Into reviews(user_id,item_id,review_text) VALUES('$userId','$itemId','$comment')";
-    if($this->conn->query($sql)){
-      header("Location:../views/signInDetail.php?item_id=$itemId");
-    }else{
-      header("Location:../views/signInDetail.php?item_id=$itemId");
-    }
-   }
-
-  /**
-   * Delete Item
-   * 
-   * @param string $itemId
-   */
-
-
-   public function deleteItem($itemId){
-    $sql = "DELETE from items WHERE item_id = '$itemId'";
-    if ($this->conn->query($sql)) {
-      $this->deleteWithOrderItem($itemId);
-    } else {
-      return false;
-    }
-  }
-
-  /**
-   * Delete Order Not Exist Items
-   * 
-   * @param string $itemId
-   */
-
-  public function deleteWithOrderItem($itemId){
-    $sql = "DELETE from orders WHERE item_id = '$itemId'";
-    if($this->conn->query($sql)){
-      header("Location:../dashboard.php");
     }
   }
 
@@ -259,4 +295,65 @@ class Item extends Database
       return false;
     }
   }
+
+  /**
+   * Delete Order List Item
+   * 
+   * @param string $orderId
+   */
+
+  public function deleteOrderItem($orderId){
+    $sql = "DELETE from orders WHERE order_id = $orderId";
+    if ($this->conn->query($sql)) {
+      header("Location:../views/order.php");
+    } else {
+      return false;
+    }
+  }
+
+  /**
+   * Delete Item
+   * 
+   * @param string $itemId
+   */
+
+
+   public function deleteItem($itemId){
+    $sql = "DELETE from items WHERE item_id = '$itemId'";
+    if ($this->conn->query($sql)) {
+      $this->deleteWithOrderItem($itemId);
+    } else {
+      return false;
+    }
+  }
+
+  /**
+   * Delete Order Not Exist Items
+   * 
+   * @param string $itemId
+   */
+
+  public function deleteWithOrderItem($itemId){
+    $sql = "DELETE from orders WHERE item_id = '$itemId'";
+    if($this->conn->query($sql)){
+      header("Location:../views/dashboard.php");
+    }
+  }
+
+  /**
+   * Delete Order Items
+   * 
+   * @param string $userId
+   */
+
+  public function deleteOrderItemsToPuchase($userId){
+    $sql = "DELETE from orders WHERE user_id = '$userId'";
+    if($this->conn->query($sql)){
+      header("Location:../views/purchse.php");
+    }else{
+      header("Location:../views/order.php");
+    }
+  }
+
+  
 }

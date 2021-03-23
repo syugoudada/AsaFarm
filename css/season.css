@@ -1,40 +1,7 @@
-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  scroll-snap-align: start;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+body{
+  background-color:#e5e2df;
 }
 
-.spring{
-  color: rgba(255, 124, 124, 0.781);
-  background-image: url("../image/Spring.jpg");
-}
-
-.summer{
-  color: rgba(124, 255, 248, 0.781);
-  background-image: url("../image/Summer.jpg");
-}
-
-.autumn{
-  color: rgba(165, 113, 0, 0.781);
-  background-image: url("../image/Autumn.jpg");
-}
-
-.winter{
-
-}
-
-.area {
-  scroll-snap-align: end;
-  height: 100vh;
-}
-
-.title{
-  font-family: 'Lobster', cursive;
-  font-size: 10rem;
+.season{
+  font-size: 3rem;
 }

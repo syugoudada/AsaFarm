@@ -38,6 +38,7 @@ class User extends Database{
       $row = $result->fetch_assoc();
       if(password_verify($password,$row['password'])){
         $_SESSION['user_id'] = $row['user_id'];
+        $_SESSION['username'] = $row['username'];
         $_SESSION['password'] = $row['password'];
         $_SESSION['first_name'] = $row['first_name'];
         $_SESSION['last_name'] = $row['last_name'];
