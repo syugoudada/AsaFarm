@@ -33,16 +33,16 @@ if (isset($_SESSION['user_id'])) {
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbar">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbar">
     <div class="container">
-      <a class="navbar-brand" href="<?php echo $url ?>">AsaFarm</a>
+      <a class="navbar-brand" href="./signInShop.php">AsaFarm</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="<?php echo $url ?>">Home
+            <a class="nav-link" href="./signInShop.php">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
@@ -52,12 +52,20 @@ if (isset($_SESSION['user_id'])) {
           <li class="nav-item">
             <a class="nav-link" href="#">Services</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./signOut.php">SignOut</a>
-          </li>
+          <?php
+          if (isset($_SESSION['user_id']) && $_SESSION['status'] != 'U') {
+          ?>
+            <li class="nav-item">
+              <a class="nav-link" href="./dashboard.php">
+              <?php
+              echo 'DashBoard';
+            }
+              ?>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./signOut.php">SignOut</a>
+            </li>
         </ul>
       </div>
     </div>

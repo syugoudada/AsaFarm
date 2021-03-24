@@ -10,7 +10,8 @@ html{
 
 body {
   padding-top: 56px;
-  background-color: rgba(209, 143, 0, 0.048);
+  /* background-color: rgba(209, 143, 0, 0.048); */
+  background-color:#e5e2df;
 }
 
 #navbar{

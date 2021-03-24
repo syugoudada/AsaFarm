@@ -19,18 +19,23 @@ include '../action/itemAction.php';
   <!-- <script src="https://kit.fontawesome.com/f3d03e8132.js"></script> -->
   <link rel="stylesheet" href="../css/font.css">
 
-
   <!-- Custom styles for this template -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/f3d03e8132.js" crossorigin="anonymous"></script>
 
+  <style>
+    body{
+      /* background-color: #e5e2df; */
+      background-color: rgba(229,226,223,.7);
+    }
+  </style>
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbar">
     <div class="container">
-      <a class="navbar-brand" href="#">AsaFarm</a>
+      <a class="navbar-brand" href="./signInShop.php">AsaFarm</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -51,7 +56,7 @@ include '../action/itemAction.php';
             <a class="nav-link" href="#">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./signOut">SignOut</a>
+            <a class="nav-link" href="./signOut.php">SignOut</a>
           </li>
         </ul>
       </div>
@@ -60,21 +65,20 @@ include '../action/itemAction.php';
 
   <div class="container">
   <header class="section-heading" style="margin-top: 100px;">
-    <h3 class="section-title">管理者ページ</h3>
+    <h3 class="section-title display-4" style="color:rgba(0,0,0,.68)">管理者ページ</h3>
   </header>
   </div>
   <section class="section-content padding-y-sm" style="margin-top: 50px;">
 
     <div class="container">
-      <article class="card card-body">
+      <article class="card card-body" style="border-radius: 20px;">
         <div class="row">
           <div class="col-md-4">
             <figure class="item-feature">
               <span class="text-primary"><i class="fa fa-2x fa-truck"></i></span>
               <figcaption class="pt-3">
                 <h5 class="title">高速配達</h5>
-                <p>Dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                  tempor incididunt ut labore </p>
+                <p>全国津々浦々配達いたします。 </p>
               </figcaption>
             </figure> <!-- iconbox // -->
           </div><!-- col // -->
@@ -82,8 +86,8 @@ include '../action/itemAction.php';
             <figure class="item-feature">
               <span class="text-primary"><i class="fa fa-2x fa-landmark"></i></span>
               <figcaption class="pt-3">
-                <h5 class="title">Creative Strategy</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                <h5 class="title">クリエイティブ戦略</h5>
+                <p>農家さんが値段を決め販売可能
                 </p>
               </figcaption>
             </figure> <!-- iconbox // -->
@@ -92,8 +96,8 @@ include '../action/itemAction.php';
             <figure class="item-feature">
               <span class="text-primary"><i class="fa fa-2x fa-lock"></i></span>
               <figcaption class="pt-3">
-                <h5 class="title">High secured </h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                <h5 class="title">安全性</h5>
+                <p>あなたの安全を私たちに守ります。
                 </p>
               </figcaption>
             </figure> <!-- iconbox // -->
@@ -105,12 +109,9 @@ include '../action/itemAction.php';
   </section>
 
   <div class="container">
-    <div class="card mx-auto my-5 border border-0">
-      <div class="card-header bg-white border-0 text-primary">
-
-      </div>
-      <div class="table-responsive">
-        <table class="table table-striped table-sm">
+    <div class="card mx-auto my-5 border border-0" style="border-radius: 10px;">
+      <div class="table-responsive" style="padding:20px 10px">
+        <table class="table table-striped table-sm" style="border-radius: 30px;">
           <thead>
             <tr>
               <th>#</th>
@@ -127,7 +128,7 @@ include '../action/itemAction.php';
             $row = $itemHandle->selectAllItems($_SESSION['user_id']);
             foreach ($row as $item) {
             ?>
-              <tr>
+              <tr style="line-height: 5rem;">
                 <td><?php echo $item['item_id'] ?></td>
                 <td><?php echo $item['item_name'] ?></td>
                 <td><?php echo $item['item_price'] ?></td>
@@ -142,16 +143,7 @@ include '../action/itemAction.php';
           </tbody>
         </table>
       </div>
-      <a href="./register.php">Go Register</a>
-      <!-- <div class="row no-gutters bg-light position-relative">
-        <div class="col-md-6 mb-md-0 p-md-4">
-          <img src="../image/register.jpg" class="w-100" alt="...">
-        </div>
-        <div class="col-md-6 position-static p-4 pl-md-0">
-          <h5 class="mt-0">Let's Register Vegetable</h5>
-          <p>Another instance of placeholder content for this other custom component. It is intended to mimic what some real-world content would look like, and we're using it here to give the component a bit of body and size.</p>
-        </div>
-      </div> -->
+      <!-- <a href="./register.php">Go Register</a> -->
     </div>
   </div>
 

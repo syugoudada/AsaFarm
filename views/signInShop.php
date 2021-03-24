@@ -82,10 +82,10 @@ include '../action/ItemAction.php';
 
       <div class="col-lg-3">
         <div class="list-group my-4">
-          <a href="./signInSeason.php?season_id=1" class="list-group-item">Spring</a>
-          <a href="./signInSeason.php?season_id=2" class="list-group-item">Summar</a>
-          <a href="./signInSeason.php?season_id=3" class="list-group-item">Autumn</a>
-          <a href="./signInSeason.php?season_id=4" class="list-group-item">Winter</a>
+          <a href="./signInSeason.php?season_id=1" class="list-group-item">春野菜</a>
+          <a href="./signInSeason.php?season_id=2" class="list-group-item">夏野菜</a>
+          <a href="./signInSeason.php?season_id=3" class="list-group-item">秋野菜</a>
+          <a href="./signInSeason.php?season_id=4" class="list-group-item">冬野菜</a>
         </div>
 
         <blockquote class="twitter-tweet" data-lang="en" data-theme="light">
@@ -114,7 +114,7 @@ include '../action/ItemAction.php';
           ?>
 
             <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
+              <div class="card h-100 shadow-lg bg-white rounded">
                 <a href="./signInDetail.php?item_id=<?php echo $item['item_id'] ?>"><img class="card-img-top" src="../uploads/<?php echo $item['item_image'] ?>" alt="" height="200px" style="object-fit:cover"></a>
                 <div class="card-body">
                   <h4 class="card-title">

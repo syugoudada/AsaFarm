@@ -1,6 +1,7 @@
 <?php
 session_start();
 include '../action/ItemAction.php';
+
 $row = $itemHandle->selectRecipteItems($_SESSION['user_id']);
 $purchaseItemsArray = json_decode($row['purchase_items'],true);
 $items = [];
@@ -9,6 +10,7 @@ foreach($purchaseItemsArray as $itemInfo){
   $items[] = $itemHandle->selectItem($itemInfo["item_id"]);
   $itemPurchaseQuantity[] = $itemInfo['buy_quantity'];
 }
+$today = date('y/m/d');
 
 ?>
 
@@ -89,7 +91,7 @@ foreach($purchaseItemsArray as $itemInfo){
           <div class="col-6 text-right">
             <address>
               <strong>注文日:</strong><br>
-              March 7, 2014<br><br>
+              <?php echo $today ?><br><br>
             </address>
           </div>
         </div>
@@ -136,34 +138,18 @@ foreach($purchaseItemsArray as $itemInfo){
                   <?php
                   }
                   ?>
-                  <!-- <tr>
-                    <td>BS-400</td>
-                    <td class="text-center">$20.00</td>
-                    <td class="text-center">3</td>
-                    <td class="text-right">$60.00</td>
-                  </tr>
-                  <tr>
-                    <td>BS-1000</td>
-                    <td class="text-center">$600.00</td>
-                    <td class="text-center">1</td>
-                    <td class="text-right">$600.00</td>
-                  </tr> -->
+                  
                   <tr>
                     <td class="thick-line"></td>
                     <td class="thick-line"></td>
                     <td class="thick-line text-center"><strong>小計</strong></td>
                     <td class="thick-line text-right"><?php echo number_format($total); ?>円</td>
                   </tr>
-                  <!-- <tr>
-                    <td class="no-line"></td>
-                    <td class="no-line"></td>
-                    <td class="no-line text-center"><strong>運送費</strong></td>
-                    <td class="no-line text-right">$15</td>
-                  </tr> -->
+                 
                   <tr>
                     <td class="no-line"></td>
                     <td class="no-line"></td>
-                    <td class="no-line text-center"><strong>Total</strong></td>
+                    <td class="no-line text-center"><strong>合計</strong></td>
                     <td class="no-line text-right"><?php echo number_format($total); ?>円</td>
                   </tr>
                 </tbody>

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Register</title>
+  <title>AsaFarm</title>
   <!--Made with love by Mutiullah Samim -->
 
   <!--Bootsrap 4 CDN-->
@@ -28,59 +28,59 @@
     <div class="d-flex justify-content-center h-100">
       <div class="card" id="card">
         <div class="card-header">
-          <h3>Register</h3>
+          <h3>登録フォーム</h3>
         </div>
         <div class="card-body">
           <form action="../action/ItemAction.php" method="POST" enctype="multipart/form-data">
-            <label for="item_name">Name</label>
+            <label for="item_name">商品名</label>
             <div class="input-group form-group">
               <input type="text" name="item_name" class="form-control" required>
             </div>
 
-            <label for="item_stock">Price</label>
+            <label for="item_stock">価格</label>
             <div class="input-group form-group">
               <input type="number" id="item_price" name="item_price" class="form-control" min="1" required>
             </div>
 
-            <label for="item_stock">Stock</label>
+            <label for="item_stock">仕入数</label>
             <div class="input-group form-group">
               <input type="number" id="item_stock" name="item_stock" class="form-control" min="1" required>
             </div>
 
 
             <div class="form-group">
-              <label for="description">Product Description</label>
+              <label for="description">商品説明</label>
               <textarea class="form-control" id="description" name="description" rows="3"></textarea>
             </div>
 
-            <label for="season">Season</label>
+            <label for="season">時期</label>
             <div class="d-flex justify-content-between mt-3">
               <div class="custom-control custom-radio mr-2">
                 <input type="radio" id="seasonRadio1" name="seasonRadio" class="custom-control-input" value="1" required>
-                <label class="custom-control-label text-white" for="seasonRadio1">Spring</label>
+                <label class="custom-control-label text-white" for="seasonRadio1">春</label>
               </div>
 
               <div class="custom-control custom-radio mr-2">
                 <input type="radio" id="seasonRadio2" name="seasonRadio" class="custom-control-input" value="2">
-                <label class="custom-control-label text-white" for="seasonRadio2">Summer</label>
+                <label class="custom-control-label text-white" for="seasonRadio2">夏</label>
               </div>
 
               <div class="custom-control custom-radio mr-2">
                 <input type="radio" id="seasonRadio3" name="seasonRadio" class="custom-control-input" value="3">
-                <label class="custom-control-label text-white" for="seasonRadio3">Autumn</label>
+                <label class="custom-control-label text-white" for="seasonRadio3">秋</label>
               </div>
 
               <div class="custom-control custom-radio mr-2">
                 <input type="radio" id="seasonRadio4" name="seasonRadio" class="custom-control-input" value="4">
-                <label class="custom-control-label text-white" for="seasonRadio4">Winter</label>
+                <label class="custom-control-label text-white" for="seasonRadio4">冬</label>
               </div>
             </div>
 
-            <label for="item_name" class="mt-4">Image</label>
+            <label for="item_name" class="mt-4">商品画像</label>
             <div class="input-group mb-3">
               <div class="custom-file">
                 <input type="file" class="custom-file-input" id="inputGroupFile01" name="item_image" aria-describedby="inputGroupFileAddon01" required>
-                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                <label class="custom-file-label" for="inputGroupFile01">選択</label>
               </div>
             </div>
 
@@ -89,7 +89,7 @@
             </script>
 
             <div class="form-group flex-row">
-              <input type="submit" value="Register" name="register" class="btn login_btn mt-3">
+              <input type="submit" value="登録" name="register" class="btn login_btn mt-3">
             </div>
           </form>
         </div>

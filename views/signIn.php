@@ -48,7 +48,7 @@
 						<input type="checkbox">Remember Me
 					</div>
 					<div class="form-group flex-row">
-						<input type="submit" value="Login" name="sign_in" class="btn login_btn mt-3">
+						<input type="submit" value="Sign In" name="sign_in" class="btn login_btn mt-3">
 					</div>
 				</form>
 			</div>

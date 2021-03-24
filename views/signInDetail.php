@@ -92,7 +92,7 @@ $item = $itemHandle->selectItem($itemId);
               </div>
               <div class="row">
                 <div class="col-xs-6" style="margin-left: 13px;">
-                  <div class="product_quantity"> <span>QTY: </span> <input id="quantity_input" type="number" name="quantity" required min="1"></div>
+                  <div class="product_quantity"> <span>QTY: </span> <input id="quantity_input" type="number" name="quantity" required min="1" max="<?php echo $item['item_stocks']; ?>"></div>
                   <input type="hidden" name="item_id" value="<?php echo $itemId; ?>">
                 </div>
                 <div class="col-xs-6"> <button type="submit" name="order" class="btn btn-primary shop-button">Add to Order</button>
@@ -133,13 +133,16 @@ $item = $itemHandle->selectItem($itemId);
     </div>
   </div>
 
+  <?php
+      $row = $itemHandle->selectReview($itemId);
+      if(count($row) > 1){
+  ?>
   <div class="super_container">
     <div class="single_product" style="height: 60vh;">
       <div class="container-fluid mt-5" style="background-color: #fff;">
         <h3 class="pt-3">Review</h3>
         <div class="row" style="padding: 10px;">
         <?php 
-          $row = $itemHandle->selectReview($itemId);
           foreach($row as $review){
         ?>
           <div class="col-4 mb-4">
@@ -160,6 +163,9 @@ $item = $itemHandle->selectItem($itemId);
       </div>
     </div>
   </div>
+  <?php 
+      }
+  ?>
 </body>
 
 </html>

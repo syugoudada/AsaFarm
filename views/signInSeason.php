@@ -84,10 +84,10 @@ $season = ["1" => array("season" => "spring"), "2" => array("season" => "summer"
 
       <div class="col-lg-3">
         <div class="list-group my-4">
-          <a href="./signInSeason.php?season_id=1" class="list-group-item">Spring</a>
-          <a href="./signInSeason.php?season_id=2" class="list-group-item">Summar</a>
-          <a href="./signInSeason.php?season_id=3" class="list-group-item">Autumn</a>
-          <a href="./signInSeason.php?season_id=4" class="list-group-item">Winter</a>
+          <a href="./signInSeason.php?season_id=1" class="list-group-item">春野菜</a>
+          <a href="./signInSeason.php?season_id=2" class="list-group-item">夏野菜</a>
+          <a href="./signInSeason.php?season_id=3" class="list-group-item">秋野菜</a>
+          <a href="./signInSeason.php?season_id=4" class="list-group-item">冬野菜</a>
         </div>
 
         <blockquote class="twitter-tweet" data-lang="en" data-theme="light">
@@ -102,7 +102,7 @@ $season = ["1" => array("season" => "spring"), "2" => array("season" => "summer"
 
       <div class="col-lg-9">
 
-      <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+        <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
               <img class="d-block  w-100" src="../image/<?php echo ucfirst($season[$seasonId]['season']) ?>.jpg" alt="First slide" width="900" height="350" style="border-radius: 15px;">
@@ -110,29 +110,29 @@ $season = ["1" => array("season" => "spring"), "2" => array("season" => "summer"
           </div>
         </div>
         <div class="row">
-        <?php
-        $row = $itemHandle->selectSeasonItems($seasonId);
-        foreach ($row as $item) {
-        ?>
+          <?php
+          $row = $itemHandle->selectSeasonItems($seasonId);
+          foreach ($row as $item) {
+          ?>
 
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="./detail.php?item_id=<?php echo $item['item_id'] ?>"><img class="card-img-top" src="../uploads/<?php echo $item['item_image'] ?>" alt="" height="200px" style="object-fit:cover"></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="./detail.php?item_id=<?php echo $item['item_id'] ?>"><?php echo $item['item_name'] ?></a>
-                </h4>
-                <h5>￥<?php echo number_format($item['item_price']) ?></h5>
-                <p class="card-text"></p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="card h-100 shadow-lg bg-white rounded">
+                <a href="./signInDetail.php?item_id=<?php echo $item['item_id'] ?>"><img class="card-img-top" src="../uploads/<?php echo $item['item_image'] ?>" alt="" height="200px" style="object-fit:cover"></a>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="./signInDetail.php?item_id=<?php echo $item['item_id'] ?>"><?php echo $item['item_name'] ?></a>
+                  </h4>
+                  <h5>￥<?php echo number_format($item['item_price']) ?></h5>
+                  <p class="card-text"></p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                </div>
               </div>
             </div>
-          </div>
-        <?php
-        }
-        ?>
+          <?php
+          }
+          ?>
         </div>
         <!-- /.row -->
 
@@ -204,7 +204,7 @@ $season = ["1" => array("season" => "spring"), "2" => array("season" => "summer"
         <div class="col-md-12">
           <p class="text-center"> © 2021 Company name </p>
         </div>
-        
+
       </section>
     </div><!-- //container -->
   </footer>

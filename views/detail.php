@@ -102,13 +102,17 @@ $item = $itemHandle->selectItem($itemId);
     </div>
   </div>
 
+  <?php
+      $row = $itemHandle->selectReview($itemId);
+      if(count($row) > 1){
+  ?>
+
   <div class="super_container">
     <div class="single_product" style="height: 60vh;">
       <div class="container-fluid mt-5" style="background-color: #fff;">
         <h3 class="pt-3">Review</h3>
         <div class="row" style="padding: 10px;">
         <?php 
-          $row = $itemHandle->selectReview($itemId);
           foreach($row as $review){
         ?>
           <div class="col-4 mb-4">
@@ -129,6 +133,9 @@ $item = $itemHandle->selectItem($itemId);
       </div>
     </div>
   </div>
+  <?php
+      }
+  ?>
 </body>
 
 </html>
