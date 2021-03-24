@@ -1,0 +1,25 @@
+/*!
+ * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template/shop-homepage)
+ * Copyright 2013-2020 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-shop-homepage/blob/master/LICENSE)
+ */
+
+html{
+  font-size: 100%;
+}
+
+body {
+  padding-top: 56px;
+  background-color: rgba(209, 143, 0, 0.048);
+}
+
+#navbar{
+  background-color: rgba(53, 215, 255, 0.733);
+}
+
+.same-img{
+  object-fit: cover;
+  height: 200px;
+}
+
+
