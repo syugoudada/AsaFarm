@@ -23,7 +23,7 @@
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">
-				<h3>Sign In</h3>
+				<h3>サインイン</h3>
 				<div class="d-flex justify-content-end social_icon">
 					<span><i class="fab fa-facebook-square"></i></span>
 					<span><i class="fab fa-google-plus-square"></i></span>
@@ -36,28 +36,28 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" name="username" class="form-control" placeholder="username" required>
+						<input type="text" name="username" class="form-control" placeholder="User Name" required>
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" name="password" class="form-control" placeholder="password" required>
+						<input type="password" name="password" class="form-control" placeholder="Password" required>
 					</div>
 					<div class="row align-items-center remember">
 						<input type="checkbox">Remember Me
 					</div>
 					<div class="form-group flex-row">
-						<input type="submit" value="Sign In" name="sign_in" class="btn login_btn mt-3">
+						<input type="submit" value="サインイン" name="sign_in" class="btn login_btn mt-3">
 					</div>
 				</form>
 			</div>
 			<div class="card-footer">
-				<div class="d-flex justify-content-center links">
-					Don't have an account?<a href="./signUp.php">Sign Up</a>
+				<div class="d-flex links">
+					<a href="./signUp.php">アカウント作成</a>
 				</div>
-				<div class="d-flex justify-content-center">
-					<a href="#">Forgot your password?</a>
+				<div class="d-flex">
+					<a href="#">パスワードをお忘れですか?</a>
 				</div>
 			</div>
 		</div>

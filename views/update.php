@@ -9,7 +9,7 @@
 <html>
 
 <head>
-  <title>Update</title>
+  <title>AsaFarm</title>
   <!--Made with love by Mutiullah Samim -->
 
   <!--Bootsrap 4 CDN-->
@@ -34,6 +34,7 @@
       <div class="card" id="card">
         <div class="card-header">
           <h3>商品更新フォーム</h3>
+          <a href="./dashboard.php">管理者ページ</a>
         </div>
         <div class="card-body">
           <form action="../action/ItemAction.php" method="POST" enctype="multipart/form-data">

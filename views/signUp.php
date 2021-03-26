@@ -23,12 +23,7 @@
 	<div class="d-flex justify-content-center h-100">
 		<div class="card" id="card">
 			<div class="card-header">
-				<h3>Sign Up</h3>
-				<!-- <div class="d-flex justify-content-end social_icon">
-					<span><i class="fab fa-facebook-square"></i></span>
-					<span><i class="fab fa-google-plus-square"></i></span>
-					<span><i class="fab fa-twitter-square"></i></span>
-				</div> -->
+				<h3>サインアップ</h3>
 			</div>
 			<div class="card-body">
 				<form action="../action/userAction.php" method="POST">
@@ -51,25 +46,25 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" name="username" class="form-control" placeholder="username" required>
+						<input type="text" name="username" class="form-control" placeholder="User Name" required>
 					</div>
 
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" name="password" class="form-control" placeholder="password" required>
+						<input type="password" name="password" class="form-control" placeholder="Password" required>
 					</div>
 
 
 					<div class="form-group flex-row">
-						<input type="submit" value="SignUp" name="sign_up" class="btn login_btn mt-3">
+						<input type="submit" value="サインアップ" name="sign_up" class="btn login_btn mt-3">
 					</div>
 				</form>
 			</div>
 			<div class="card-footer">
 				<div class="d-flex links">
-					Do you have an account?<a href="./signIn.php">Sign In</a>
+					Do you have an account?<a href="./signIn.php">サインイン</a>
 				</div>
 			</div>
 		</div>

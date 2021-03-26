@@ -12,7 +12,7 @@ include '../action/itemAction.php';
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Shop Homepage - Start Bootstrap Template</title>
+  <title>AsaFarm</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
@@ -204,7 +204,7 @@ include '../action/itemAction.php';
 
       <section class="footer-bottom row text-white">
         <div class="col-md-12">
-          <p class="text-center"> © 2021 Company name </p>
+          <p class="text-center"> © 2021 AsaFarm</p>
         </div>
 
       </section>

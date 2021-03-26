@@ -19,7 +19,7 @@ if (isset($_SESSION['user_id'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>AsaFarm</title>
   <link rel="stylesheet" href="../css/cart.css">
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <link rel="stylesheet" href="../css/font.css">
@@ -77,7 +77,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="card-header bg-dark text-light">
           <i class="fa fa-shopping-cart" aria-hidden="true"></i>
           ショッピングカート
-          <a href="" class="btn btn-outline-info btn-sm pull-right">Continiu shopping</a>
+          <a href="./signInShop.php" class="btn btn-outline-info btn-sm pull-right">Continiu shopping</a>
           <div class="clearfix"></div>
         </div>
         <div class="card-body">
@@ -105,7 +105,7 @@ if (isset($_SESSION['user_id'])) {
                 <div class="col-4 col-sm-4 col-md-4">
                   <div class="quantity">
                     <!-- <input type="button" value="+" class="plus"> -->
-                    <input type="number" step="1" max="99" min="1" value="<?php echo $item['buy_quantity'] ?>" title="Qty" class="qty" size="4">
+                    <input type="number" step="1"  min="1" value="<?php echo $item['buy_quantity'] ?>" title="Qty" class="qty" size="4" disabled>
                     <!-- <input type="button" value="-" class="minus"> -->
                   </div>
                 </div>
@@ -132,7 +132,7 @@ if (isset($_SESSION['user_id'])) {
                 <input type="text" class="form-control" placeholder="cupone code">
               </div>
               <div class="col-6">
-                <input type="submit" class="btn btn-default" value="Use cupone">
+                <input type="button" class="btn btn-default" value="Use cupone">
               </div>
             </div>
           </div>

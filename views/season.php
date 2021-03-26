@@ -196,7 +196,7 @@ $season = ["1" => array("season" => "spring"), "2" => array("season" => "summer"
 
       <section class="footer-bottom row text-white">
         <div class="col-md-12">
-          <p class="text-center"> © 2021 Company name </p>
+          <p class="text-center"> © 2021 AsaFarm </p>
         </div>
 
       </section>
